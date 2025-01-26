@@ -76,7 +76,7 @@ function compress(req, res, inputStream) {
 
       // Pipe the processed image directly to the response
       res.setHeader("Content-Type", `image/${format}`);
-      sharpInstance.toFormat(format, { quality: req.params.quality }).pipe(res);
+      sharpInstance.toFormat(format, { quality: req.params.quality, effort:0 }).pipe(res);
     })
     .catch((err) => {
       console.error("Error fetching metadata:", err.message);
